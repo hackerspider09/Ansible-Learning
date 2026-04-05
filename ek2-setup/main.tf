@@ -26,7 +26,7 @@ resource "aws_instance" "worker_node" {
 
   ami           = each.value.ami_id
   instance_type = local.instance_type
-  security_groups = [data.aws_security_group.ansible_sg.id]
+  vpc_security_group_ids = [data.aws_security_group.ansible_sg.id]
   key_name = aws_key_pair.ansible_keypair.key_name
   subnet_id = data.aws_subnet.ansible_sn.id
 
@@ -38,9 +38,11 @@ resource "aws_instance" "worker_node" {
 resource "aws_instance" "control_node" {
   ami           = local.instances.ubuntu.ami_id
   instance_type = local.instance_type
-  security_groups = [data.aws_security_group.ansible_sg.id]
+  vpc_security_group_ids = [data.aws_security_group.ansible_sg.id]
   key_name = aws_key_pair.ansible_keypair.key_name
   subnet_id = data.aws_subnet.ansible_sn.id
+
+
 
   tags = {
     Name = "${local.control_node.machine_type}-ControlNode}"
