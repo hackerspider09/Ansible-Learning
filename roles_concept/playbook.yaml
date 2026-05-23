@@ -1,0 +1,14 @@
+- hosts: servers
+  become: true
+
+  pre_tasks:
+    - name: Update system
+      apt:
+        update_cache: true
+
+  tasks:
+    - name: Install docker
+      include_role: 
+        name: docker
+        vars: 
+          pkg_name
