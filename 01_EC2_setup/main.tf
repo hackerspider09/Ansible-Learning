@@ -35,18 +35,20 @@ resource "aws_instance" "worker_node" {
     User = "${each.value.username}"
   }
 }
-resource "aws_instance" "control_node" {
-  ami           = local.instances.ubuntu.ami_id
-  instance_type = local.instance_type
-  vpc_security_group_ids = [data.aws_security_group.ansible_sg.id]
-  key_name = aws_key_pair.ansible_keypair.key_name
-  subnet_id = data.aws_subnet.ansible_sn.id
+
+# control node
+# resource "aws_instance" "control_node" {
+#   ami           = local.instances.ubuntu.ami_id
+#   instance_type = local.instance_type
+#   vpc_security_group_ids = [data.aws_security_group.ansible_sg.id]
+#   key_name = aws_key_pair.ansible_keypair.key_name
+#   subnet_id = data.aws_subnet.ansible_sn.id
 
 
 
-  tags = {
-    Name = "${local.control_node.machine_type}-ControlNode}"
-    User = "${local.control_node.username}"
-  }
-}
+#   tags = {
+#     Name = "${local.control_node.machine_type}-ControlNode}"
+#     User = "${local.control_node.username}"
+#   }
+# }
 
