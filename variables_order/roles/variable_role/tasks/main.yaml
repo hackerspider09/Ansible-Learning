@@ -1,0 +1,4 @@
+
+- name: Print variable
+  debug:
+    msg: "variable name is => {{ app_name }}"

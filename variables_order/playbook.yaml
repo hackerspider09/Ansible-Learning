@@ -1,0 +1,18 @@
+- hosts: all
+  gather_facts: false
+
+  # Play variable
+  # vars:
+  #   app_name: value_from_playbook
+
+
+  tasks:
+
+    - name: Check variable priority
+      include_role:
+        name: variable_role
+
+        # Tasks variable
+
+      # vars:
+      #   app_name: value_from_task
