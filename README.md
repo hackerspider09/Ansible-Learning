@@ -11,6 +11,7 @@ This repository contains notes and examples for learning Ansible automation.
 - [Roles](roles_concept/README.md) - role structure, creating roles, tasks/handlers/files/templates/vars/defaults/meta directories, using roles in a playbook (roles:/include_role/import_role), role dependencies
   - [Handlers](roles_concept/handler.md) - how handlers work, notify, listen
   - [Templates](roles_concept/template.md) - jinja2 templating, template module, variable sources
+- [Import and Include](import_include/README.md) - parse time vs runtime loading, import_tasks/include_tasks, import_role/include_role, conditional roles with when:, role with internal task split, all combinations
 
 ## Ansible Notes
 
