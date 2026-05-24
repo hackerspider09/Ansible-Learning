@@ -1,0 +1,5 @@
+- name: Generate config
+  template:
+    src: app.conf.j2
+    dest: "{{ playbook_dir }}/../OutputDir/app.conf"
+      

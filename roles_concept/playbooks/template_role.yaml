@@ -1,0 +1,8 @@
+
+- hosts: all
+  gather_facts: false
+
+  
+  roles:
+    - role: template_role
+      app_name: "template app"

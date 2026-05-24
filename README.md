@@ -8,6 +8,9 @@ This repository contains notes and examples for learning Ansible automation.
 - [Installing Packages on Ubuntu](install-pkg-ubuntu/README.md) - Examples of Ansible commands for package installation
 - [Variable Precedence](variables_order/variables.md) - Variable types, role variables and precedence order
 - [Config and Inventory](config_and_inventory/README.md) - `ansible.cfg` setup, SSH defaults, privilege escalation, inventory file syntax, host/group variables, connection variables
+- [Roles](roles_concept/README.md) - role structure, creating roles, tasks/handlers/files/templates/vars/defaults/meta directories, using roles in a playbook (roles:/include_role/import_role), role dependencies
+  - [Handlers](roles_concept/handler.md) - how handlers work, notify, listen
+  - [Templates](roles_concept/template.md) - jinja2 templating, template module, variable sources
 
 ## Ansible Notes
 

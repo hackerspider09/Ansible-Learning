@@ -30,3 +30,5 @@ terraform.rc
 */ansible-ssh-key
 */ansible-ssh-key.pub
 nohup.out
+needtoindex.txt
+todo

@@ -1,0 +1,11 @@
+
+- name: Check File
+  stat:
+    path: "{{ playbook_dir }}/../OutputDir/sample_copy.txt"
+  register: taskOp
+
+
+- name: Print File Status
+  debug:
+    msg: "File exists => {{ taskOp.stat.exists }}"
+  listen: Check File

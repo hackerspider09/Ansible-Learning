@@ -1,0 +1,8 @@
+- name: Copy file
+  copy:
+    src: sample.txt
+    dest: "{{ playbook_dir }}/../OutputDir/sample_copy.txt"
+    # path is related to playbook not role
+  
+  notify: 
+    - Check File
