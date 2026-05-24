@@ -1,0 +1,25 @@
+# include_role with when: - conditional role
+# role only runs if the condition is true at runtime
+# this is only possible with include_role, not import_role
+#
+# run with:  ansible-playbook playbooks/05_include_role_when.yaml
+# skip role: ansible-playbook playbooks/05_include_role_when.yaml -e "run_optional=false"
+
+- hosts: all
+  gather_facts: false
+
+  vars:
+    run_optional: true                # change to false to skip the role
+
+  tasks:
+    - name: always runs
+      debug:
+        msg: "this task always runs"
+
+    - include_role:
+        name: optional_role
+      when: run_optional | bool      # | bool handles string "false" from -e flag
+
+    - name: always runs too
+      debug:
+        msg: "this also always runs"

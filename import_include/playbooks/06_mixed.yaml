@@ -1,0 +1,42 @@
+# mixed - all patterns in one playbook
+# shows how import and include work together
+# also shows a role that uses import_tasks INTERNALLY to split its own tasks
+
+- hosts: all
+  gather_facts: false
+
+  vars:
+    run_optional: true
+
+  tasks:
+    - name: task 1 - inline
+      debug:
+        msg: "task 1 - before anything"
+
+    # static task split - loaded at parse time
+    - import_tasks: ../tasks/step_a.yml
+
+    - name: task 2 - inline between imports
+      debug:
+        msg: "task 2 - between step_a and role"
+
+    # dynamic role call - role has import_tasks INSIDE it (modular_role/tasks/main.yml)
+    # the role itself uses import_tasks internally to split install + verify
+    - include_role:
+        name: modular_role
+
+    - name: task 3 - inline after role
+      debug:
+        msg: "task 3 - after modular_role"
+
+    # dynamic task split - loaded at runtime
+    - include_tasks: ../tasks/step_b.yml
+
+    # conditional role - only runs if run_optional is true
+    - include_role:
+        name: optional_role
+      when: run_optional | bool
+
+    - name: task 4 - final
+      debug:
+        msg: "task 4 - done"

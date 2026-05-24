@@ -1,0 +1,18 @@
+# include_tasks - dynamic
+# task files are loaded at RUNTIME when execution reaches that line
+# supports when: and loop: unlike import_tasks
+
+- hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: before tasks
+      debug:
+        msg: "before include"
+
+    - include_tasks: ../tasks/step_a.yml  # loaded at runtime
+    - include_tasks: ../tasks/step_b.yml  # loaded at runtime
+
+    - name: after tasks
+      debug:
+        msg: "after include"

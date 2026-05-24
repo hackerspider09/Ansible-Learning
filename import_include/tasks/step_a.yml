@@ -1,0 +1,3 @@
+- name: step A
+  debug:
+    msg: "step A executed"

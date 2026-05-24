@@ -1,0 +1,4 @@
+# tasks are split into sub-files and pulled in with import_tasks
+# this keeps main.yml clean and each phase in its own file
+- import_tasks: install.yml
+- import_tasks: verify.yml

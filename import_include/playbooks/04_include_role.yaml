@@ -1,0 +1,18 @@
+# include_role - dynamic
+# role is loaded at RUNTIME when execution reaches that task
+# other tasks execute exactly in order around it
+
+- hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: before role
+      debug:
+        msg: "before include_role"
+
+    - include_role:
+        name: modular_role            # role loaded at runtime
+
+    - name: after role
+      debug:
+        msg: "after include_role"

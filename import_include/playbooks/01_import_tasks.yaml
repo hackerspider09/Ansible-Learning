@@ -1,0 +1,18 @@
+# import_tasks - static
+# both task files are loaded at PARSE TIME
+# ansible knows all tasks before running anything
+
+- hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: before tasks
+      debug:
+        msg: "before import"
+
+    - import_tasks: ../tasks/step_a.yml   # loaded at parse time
+    - import_tasks: ../tasks/step_b.yml   # loaded at parse time
+
+    - name: after tasks
+      debug:
+        msg: "after import"

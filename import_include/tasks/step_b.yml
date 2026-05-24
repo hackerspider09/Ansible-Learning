@@ -1,0 +1,5 @@
+- name: step B
+  debug:
+    msg: "step B executed"
+
+# invalid_key: this should fail   # bad yaml structure

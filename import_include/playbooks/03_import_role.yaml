@@ -1,0 +1,19 @@
+# import_role - static
+# role is loaded at PARSE TIME
+# ansible sees all role tasks before execution starts
+# cannot use when: or loop: on the role itself
+
+- hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: before role
+      debug:
+        msg: "before import_role"
+
+    - import_role:
+        name: modular_role            # role loaded at parse time
+
+    - name: after role
+      debug:
+        msg: "after import_role"
