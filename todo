@@ -1,4 +1,11 @@
-use of block to combine multiple tasks in one 
 
-playbook_dir like variables
-removed modular role as it ill cover in import include
+24-5-2026
+[] use of block to combine multiple tasks in one 
+[] playbook_dir like variables
+[x] removed modular role as it ill cover in import include
+[] register return param its same for all modules , also see return value section iin doc 
+default value it will return : changed, failed, skipped , msg 
+
+25-5-2026
+[] error handling, changed when, failedwhen
+
