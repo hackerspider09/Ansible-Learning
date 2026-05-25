@@ -8,4 +8,6 @@ default value it will return : changed, failed, skipped , msg
 
 25-5-2026
 [] error handling, changed when, failedwhen
+[] diff betwen become become user in main playbook in tasks in full role (check ms project)
+[] when ansible runs from controller how does it actualy run is it using pkg on local or remote like if it rqu pkg like k8s then those should preen ton local or remote
 
